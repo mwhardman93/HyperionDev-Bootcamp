@@ -1,0 +1,45 @@
+'''
+at top of the file include the line: import math
+Write code that will do the following:
+
+1) Allow the user to choose which calulation they want to do. This should be the first output:
+	Investment 	- to calculate the amount of interest you'll earn on your investment.
+	Bond		- to calculate the amount you'll have to pay on a home loan.
+
+	Enter either 'investment' or 'bond' from the menu above to proceed:
+
+2) How the user capitalises their selection should not affect the program!
+eg/ 'Bond', 'bond', 'BOND' should all be valid entries
+If the use doesn't type a valid input, show an appropriate error message
+
+3) If 'investment' is selected:
+	Ask the user to input:
+	- The amount of money that they are depositing.
+	- The interest rate (as percentage), only the number needs to be entered. eg/ 8 and not 8%.
+	- The number of years they plan on investing.
+	- Then ask the user if they want 'simple' or 'compound' interest, store this in a variable 'interest'.
+	- Depending on whether it is 'simple' or 'compound' interest, output the appropriate amount they will 
+	  get back after the given period at the specified interest rate using the below formula:
+		- Interest formula:
+			r = the interest entered above divided by 100
+			P = the amount the user deposits
+			t = the number of years the money is being invested
+			A = the total amount once the interest has been applied
+		Simple interest (A = P(1 + r x t) --> A = P * (1 + r*t)
+		Compound interest (A = P(1 + r)^t) --> A = P * math.pow((1+r),t)
+	- Print out the answer.
+	- Try entering 20 years and 8% and see what the difference is depending on the type of interest.
+
+4) If 'bond' is selected:
+	Ask the user to input:
+	- The present value of the house.
+	- The interest rate.
+	- The number of months they plan to take toi repay the bond.
+		- Bond formula:
+			P = present value of the house.
+			i = monthly interest rate (caculated by dividing annual interest rate by 12, after converting input to percentage (input/100)).
+			n = the number of months over which the bond is repaid.
+		repayment = (i * P )/(1 - (1 + i)**(-n))
+	- Output the answer for how much the user will have to repay each month.
+	
+'''
