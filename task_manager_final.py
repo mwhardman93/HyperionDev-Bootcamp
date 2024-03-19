@@ -225,44 +225,16 @@ ___________________________________
             # Mark the task as complete.
 	        # Edit task list
             task_list[task_selection - 1]["completed"] = True
-	        # Edit task.txt file.
-            with open("tasks.txt", 'w') as task_file:
-                task_list_to_write = []
-                for t in task_list:
-                    str_attrs = [
-				        t['username'],
-        	            t['title'],
-                        t['description'],
-                        t['due_date'].strftime(DATETIME_STRING_FORMAT),
-    	                t['assigned_date'].strftime(DATETIME_STRING_FORMAT),
-                        "Yes" if t['completed'] else "No"
-			        ]
-                    task_list_to_write.append(";".join(str_attrs))
-                task_file.write("\n".join(task_list_to_write))
-            print("Task marked as complete, returning to main menu.")
-            return              
+	        # Edit task.txt file by calling function.
+            task_complete_incomplete()           
 
         # Mark the task as incomplete.
         elif task_complete_edit == 2:
             # Mark the task as incomplete.
             # Edit task list
             task_list[task_selection - 1]["completed"] = False
-            # Edit task.txt file.
-            with open("tasks.txt", 'w') as task_file:
-                task_list_to_write = []
-                for t in task_list:
-                    str_attrs = [
-				        t['username'],
-        	            t['title'],
-                        t['description'],
-                        t['due_date'].strftime(DATETIME_STRING_FORMAT),
-    	                t['assigned_date'].strftime(DATETIME_STRING_FORMAT),
-                        "Yes" if t['completed'] else "No"
-			        ]
-                    task_list_to_write.append(";".join(str_attrs))
-                task_file.write("\n".join(task_list_to_write))
-            print("Task marked as incomplete, returning to main menu.")
-            return 
+            # Edit task.txt file by calling function.
+            task_complete_incomplete()
 
         # Editing a task.
         elif task_complete_edit == 3:
@@ -344,6 +316,25 @@ ___________________________________________
         else:
             print("Invlaid input, returning to main menu.")
             return   
+
+
+def task_complete_incomplete():
+    # Edit task.txt file.
+    with open("tasks.txt", 'w') as task_file:
+        task_list_to_write = []
+        for t in task_list:
+            str_attrs = [
+				t['username'],
+        	    t['title'],
+                t['description'],
+                t['due_date'].strftime(DATETIME_STRING_FORMAT),
+    	        t['assigned_date'].strftime(DATETIME_STRING_FORMAT),
+                "Yes" if t['completed'] else "No"
+			]
+            task_list_to_write.append(";".join(str_attrs))
+        task_file.write("\n".join(task_list_to_write))
+    print("Task updated, returning to main menu.")
+    return  
 
 
 # generate_reports = to generate task and user reports.
