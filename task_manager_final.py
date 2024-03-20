@@ -545,13 +545,10 @@ for user in user_data:
 
 logged_in = False
 while not logged_in:
-    print("""
-LOGIN SCREEN
-_______________________________________
-""")
+
+    print("LOGIN")
     curr_user = input("Username: ")
     curr_pass = input("Password: ")
-    print("""_______________________________________""")
     if curr_user not in username_password.keys():
         print("User does not exist")
         continue
